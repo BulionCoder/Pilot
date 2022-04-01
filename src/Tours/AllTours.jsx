@@ -4,7 +4,6 @@ import { Table, Space, Button, Tooltip } from 'antd';
 import { EditOutlined, PlusCircleOutlined, EuroOutlined } from '@ant-design/icons';
 import TourModal from "./TourModal";
 import DeleteTour from './DeleteTour';
-import TourExpenses from './TourExpenses';
 import '../style/generic.scss';
 
 const AllTours = () => {
@@ -77,8 +76,6 @@ const AllTours = () => {
                         <Button type="dashed" icon={<EuroOutlined />} size='small' />
                     </Tooltip>
                 </Link>
-                {/* <TourExpenses/> */}
-
             </Space>
         ),
     },

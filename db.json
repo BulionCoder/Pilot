@@ -20,6 +20,13 @@
       "email": "mateusz.kuszela@pilots.com",
       "comment": "Lorem ipsum...",
       "picture": "https://boredhumans.b-cdn.net/faces2/723.jpg"
+    },
+    {
+      "name": "Daria Bunikowska",
+      "email": "daria@bunia.pl",
+      "comment": "Whatever",
+      "picture": "https://boredhumans.b-cdn.net/faces2/630.jpg",
+      "id": 4
     }
   ],
   "tours": [
@@ -80,7 +87,7 @@
     {
       "id": 1,
       "title": "Tickets",
-      "price": 20,
+      "price": 159,
       "currency": "PLN",
       "date": "29.03.2022",
       "tourId": 4
@@ -116,6 +123,14 @@
       "currency": "EUR",
       "date": "29.03.2022",
       "tourId": 4
+    },
+    {
+      "title": "Tickets",
+      "date": "07.05.2022",
+      "price": 125,
+      "currency": "USD",
+      "tourId": "6",
+      "id": 6
     }
   ]
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import { Table, Space, Button, Tooltip } from 'antd';
-import { EditOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import { Table, Space, Button, Tooltip, Avatar } from 'antd';
+import { EditOutlined, PlusCircleOutlined, UserOutlined } from '@ant-design/icons';
 import PilotModal from "./PilotModal";
 import DeletePilot from './DeletePilot';
 import '../style/generic.scss';
@@ -18,41 +18,49 @@ const AllPilots = () => {
             .finally(() => setIsLoading(false))
     }, [])
 
-    const columns = [{
-        title: 'Name Surname',
-        dataIndex: 'name',
-        key: 'name',
-    },
-    {
-        title: 'Email',
-        dataIndex: 'email',
-        key: 'email',
-        render: text => <a href={`mailto:${text}`}>{text}</a>,
-    },
-    {
-        title: 'Comment',
-        dataIndex: 'comment',
-        key: 'comment',
-    },
-    {
-        title: 'Action',
-        key: 'action',
-        render: (text, record) => (
-            <Space size="middle">
-                <PilotModal setPilots={setPilots} modalTitle='Edit pilot'
-                    onModalClose={() => navigate('/pilots')}
-                    actionButton={showModal => (
-                        <Link to={`/pilots/${record.id}`}>
-                            <Tooltip title="Edit pilot">
-                                <Button type="dashed" icon={<EditOutlined />} size='small' onClick={showModal} />
-                            </Tooltip>
-                        </Link>
-                    )}
-                />
-                <DeletePilot pilot={record} setPilots={setPilots} />
-            </Space>
-        ),
-    },
+    const columns = [
+        {
+            title: 'Photo',
+            dataIndex: 'picture',
+            key: 'picture',
+            render: text => <Avatar size="medium" src={text} icon={<UserOutlined />} />
+        },
+
+        {
+            title: 'Name Surname',
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
+            render: text => <a href={`mailto:${text}`}>{text}</a>,
+        },
+        {
+            title: 'Comment',
+            dataIndex: 'comment',
+            key: 'comment',
+        },
+        {
+            title: 'Action',
+            key: 'action',
+            render: (text, record) => (
+                <Space size="middle">
+                    <PilotModal setPilots={setPilots} modalTitle='Edit pilot'
+                        onModalClose={() => navigate('/pilots')}
+                        actionButton={showModal => (
+                            <Link to={`/pilots/${record.id}`}>
+                                <Tooltip title="Edit pilot">
+                                    <Button type="dashed" icon={<EditOutlined />} size='small' onClick={showModal} />
+                                </Tooltip>
+                            </Link>
+                        )}
+                    />
+                    <DeletePilot pilot={record} setPilots={setPilots} />
+                </Space>
+            ),
+        },
     ]
 
     return (

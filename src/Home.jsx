@@ -1,13 +1,15 @@
 import React from 'react';
 import Banner from './Banner/Banner';
-// import AddPilot from './Pilots/AddPilot';
+import {BackTop} from 'antd';
 import Pilots from './Pilots/Pilots';
-
+import './style/generic.scss';
 const Home = () => (
     <>
         <Banner />
         <Pilots />
-        {/* <AddPilot/> */}
+        <BackTop>
+            <div className='back-top'>UP</div>
+        </BackTop>
     </>
 
 )
